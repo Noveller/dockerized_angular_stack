@@ -2,8 +2,6 @@ FROM node:latest
 
 ENV APP_ROOT /app
 
-RUN echo "HELLO WORLD!!!"
-
 RUN mkdir $APP_ROOT
 WORKDIR $APP_ROOT
 
