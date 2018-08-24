@@ -65,4 +65,5 @@ web/app/vendor/
 
 etc/ssl/
 data/
+.idea
 
