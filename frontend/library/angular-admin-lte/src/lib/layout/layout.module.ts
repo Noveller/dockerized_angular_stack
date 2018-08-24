@@ -18,6 +18,7 @@ import { WrapperService } from './wrapper/wrapper.service';
 import { SidebarRightService } from './sidebar-right/sidebar-right.service';
 import { HeaderService } from './header/header.service';
 import { FooterService } from './footer/footer.service';
+import {NgxPermissionsModule} from "ngx-permissions";
 
 @NgModule({
   imports: [CommonModule, RouterModule],

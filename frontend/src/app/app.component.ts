@@ -1,20 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import { LayoutService } from 'angular-admin-lte';
+import {Component, OnInit} from '@angular/core';
+import {LayoutService} from 'angular-admin-lte';
+import {NgxPermissionsService} from "ngx-permissions";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html'
+    selector: 'app-root',
+    templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
-  public customLayout: boolean;
+    public customLayout: boolean;
 
-  constructor(
-    private layoutService: LayoutService
-  ) {}
+    constructor(private layoutService: LayoutService, private permissions: NgxPermissionsService) {
 
-  ngOnInit() {
-    this.layoutService.isCustomLayout.subscribe((value: boolean) => {
-      this.customLayout = value;
-    });
-  }
+        const permit = ['admin', 'editor'];
+
+        this.permissions.loadPermissions(permit);
+
+    }
+
+    ngOnInit() {
+        this.layoutService.isCustomLayout.subscribe((value: boolean) => {
+            this.customLayout = value;
+        });
+    }
 }

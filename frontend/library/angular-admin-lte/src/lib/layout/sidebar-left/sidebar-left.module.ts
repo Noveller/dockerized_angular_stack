@@ -6,9 +6,10 @@ import { AnimationsModule } from '../../animations/animations.module';
 
 import { SidebarLeftToggleDirective } from './sidebar-left.directive';
 import { SidebarLeftComponent } from './sidebar-left.component';
+import {NgxPermissionsModule} from "ngx-permissions";
 
 @NgModule({
-    imports: [CommonModule, RouterModule, AnimationsModule],
+    imports: [CommonModule, RouterModule, AnimationsModule, NgxPermissionsModule],
     exports: [SidebarLeftComponent],
     declarations: [SidebarLeftToggleDirective, SidebarLeftComponent]
 })

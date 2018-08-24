@@ -14,6 +14,10 @@ const routes: Routes = [
     {
         path: 'register',
         loadChildren: './register/register.module#RegisterModule',
+    },
+    {
+        path: 'recovery-password',
+        loadChildren: './password-recovery/password-recovery.module#PasswordRecoveryModule'
     }
 ];
 

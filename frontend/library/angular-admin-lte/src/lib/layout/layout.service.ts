@@ -14,10 +14,16 @@ export class LayoutService {
    * @method constructor
    * @param routingService [description]
    */
-  constructor(
-    private routingService: RoutingService
-  ) {
-    this.init();
+  constructor(private routingService: RoutingService) {
+
+      this.routingService.onChange.subscribe((value) => {
+          if (value && value[value.length - 1]) {
+              if (this.customLayout === undefined || this.customLayout !== value[value.length - 1].data['disableLayout']) {
+                  this.isCustomLayout.next(!!value[value.length - 1].data['customLayout']);
+              }
+              this.customLayout = value[value.length - 1].data['customLayout'];
+          }
+      });
   }
 
   /**
@@ -26,13 +32,6 @@ export class LayoutService {
    * @return [description]
    */
   private init() {
-    this.routingService.onChange.subscribe((value) => {
-      if (value && value[value.length - 1]) {
-        if (this.customLayout === undefined || this.customLayout !== value[value.length - 1].data['disableLayout']) {
-          this.isCustomLayout.next(!!value[value.length - 1].data['customLayout']);
-        }
-        this.customLayout = value[value.length - 1].data['customLayout'];
-      }
-    });
+
   }
 }

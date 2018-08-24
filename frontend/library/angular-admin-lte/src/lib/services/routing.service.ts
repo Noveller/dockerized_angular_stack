@@ -39,7 +39,6 @@ export class RoutingService {
   /**
    * [createUrl description]
    * @method createUrl
-   * @param route [description]
    * @return [description]
    */
   private static createUrl(route: ActivatedRouteSnapshot): string {

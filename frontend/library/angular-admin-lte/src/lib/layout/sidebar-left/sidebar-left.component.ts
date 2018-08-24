@@ -25,6 +25,7 @@ import {AnimationEvent} from '../../animations/animations.interface';
 import {removeListeners, removeSubscriptions} from '../../helpers';
 
 import {SidebarLeftToggleDirective} from './sidebar-left.directive';
+import {NgxPermissionsService} from "ngx-permissions";
 
 export interface Item {
   id: number;
@@ -71,17 +72,7 @@ export class SidebarLeftComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @ViewChildren(SidebarLeftToggleDirective) public sidebarLeftToggleDirectives: QueryList<SidebarLeftToggleDirective>;
 
-  /**
-   * @method constructor
-   * @param  changeDetectorRef  [description]
-   * @param  layoutStore        [description]
-   * @param  ngZone             [description]
-   * @param  renderer2          [description]
-   * @param  router             [description]
-   * @param  routingService     [description]
-   * @param  wrapperService     [description]
-   * @param  headerService      [description]
-   */
+
   constructor(
     private changeDetectorRef: ChangeDetectorRef,
     private layoutStore: LayoutStore,
@@ -90,14 +81,20 @@ export class SidebarLeftComponent implements OnInit, AfterViewInit, OnDestroy {
     private router: Router,
     private routingService: RoutingService,
     private wrapperService: WrapperService,
-    private headerService: HeaderService
-  ) {}
+    private headerService: HeaderService,
+    private permissions: NgxPermissionsService
+
+  ) {
+  }
 
   /**
    * @method ngOnInit
    */
   ngOnInit() {
-    this.subscriptions.push(this.layoutStore.sidebarLeftMenu.subscribe(value => {
+
+      console.log(this.permissions.getPermissions());
+
+      this.subscriptions.push(this.layoutStore.sidebarLeftMenu.subscribe(value => {
       this.menu = value;
       this.monkeyPatchMenu(this.menu);
       if (this.initialized) {
