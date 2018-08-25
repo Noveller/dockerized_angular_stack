@@ -65,7 +65,7 @@ export class SidebarLeftComponent implements OnInit, AfterViewInit, OnDestroy {
   private itemsByIds: {[propKey: number]: Item} = {};
   private runningAnimations = 0;
   private subscriptions = [];
-  private activeUrl: String;
+  private activeUrl: string;
   private initialized: boolean;
 
   @ViewChild('sidebarElement') public sidebarElement: ElementRef;

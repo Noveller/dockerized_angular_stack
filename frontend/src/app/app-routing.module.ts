@@ -7,8 +7,8 @@ import {NgxPermissionsGuard} from "ngx-permissions";
 const routes: Routes = [
 
     {
-        path: 'user',
-        loadChildren: './user/user.module#LoginModule',
+        path: 'auth',
+        loadChildren: './auth/auth.module#AuthModule',
         data: {
             customLayout: true
         }
@@ -21,7 +21,7 @@ const routes: Routes = [
         data: {
             permissions: {
                 only: ['admin', 'editor'],
-                redirectTo: '/user/login'
+                redirectTo: '/auth/login'
             }
         }
     },

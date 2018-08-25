@@ -6,7 +6,10 @@ import {ProfileComponent} from "./components/base/profile.component";
 const routes = [
     {
         path: '',
-        component: ProfileComponent
+        component: ProfileComponent,
+        data: {
+            customLayout: false
+        }
     }
 ];
 
